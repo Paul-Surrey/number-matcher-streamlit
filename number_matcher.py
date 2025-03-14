@@ -35,7 +35,11 @@ class NumberMatchingProgram:
         if self.matchCounts[new_number] == 3:
             self.topMatchList.append(new_number)
 
-program = NumberMatchingProgram()
+# Initialize the program in session state if it doesn't exist
+if 'program' not in st.session_state:
+    st.session_state.program = NumberMatchingProgram()
+
+program = st.session_state.program #retrieve the program from the session state.
 
 st.title("Number Matching Program")
 
